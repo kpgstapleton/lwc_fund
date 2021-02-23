@@ -3,6 +3,6 @@
     <apiVersion>50.0</apiVersion>
     <isExposed>true</isExposed>
     <targets>
-        <target>lightning__AppPage</target> //added to make this component available for lightning app pages.
+        <target>lightning__AppPage</target> <!--added to make this component available for lightning app pages. -->
     </targets>
 </LightningComponentBundle>
