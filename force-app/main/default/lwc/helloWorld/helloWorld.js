@@ -8,13 +8,13 @@ export default class HelloWorld extends LightningElement {
         this.title = event.target.value;
     }
 
-    @track address={
+    address={
         city:'Cork',
         postcode:3123,
         country:'Australia'
     }
 
     trackHandler(event){
-        this.address.city = event.target.value;
+        this.address = {...this.address, "city":event.target.value}
     }
 }
