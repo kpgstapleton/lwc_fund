@@ -13,6 +13,15 @@
       <template if:true={isVisible}>
         <div>Here I am</div>
       </template>
-      
+      <template if:false={isVisible}>
+        <div>Where am i</div>
+      </template>
+
+      <lightning-input type="text" label="type hello to see the data"
+                onkeyup={changeHandler}></lightning-input>
     </lightning-card>
+
+    <template if:true={helloMethod}>
+      <div>You have typed correctly</div>
+    </template>
 </template>
