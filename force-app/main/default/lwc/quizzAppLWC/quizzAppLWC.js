@@ -3,6 +3,7 @@ import { LightningElement } from 'lwc';
 export default class QuizzAppLWC extends LightningElement {
   
   selected={}//for storing answers
+  correctAnswers = 0;
 
   myQuestions=[
     {
@@ -37,10 +38,23 @@ export default class QuizzAppLWC extends LightningElement {
     }
   ]
 
+  get allNotSelected(){
+    return !(Object.keys(this.selected).length === this.myQuestions.length);
+  }
+
   changeHandler(event){
     console.log("name: ", event.target.name);
     console.log("value: ", event.target.value);
     const {name,value} = event.target;
     this.selected={...this.selected, [name]:value}
+  }
+
+  submitHandler(event){
+    event.preventDefault();
+    this.myQuestions.filter(item=>this.selected[item.id] === item.correctAnswer);
+  }
+
+  resetHandler(){
+
   }
 }
