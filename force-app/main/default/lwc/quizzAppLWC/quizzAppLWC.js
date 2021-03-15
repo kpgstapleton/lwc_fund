@@ -6,6 +6,7 @@ export default class QuizzAppLWC extends LightningElement {
   correctAnswers = 0;
   isSubmitted = false;
 
+  //stores questions for app
   myQuestions=[
     {
       id:"Question 1",
@@ -39,21 +40,25 @@ export default class QuizzAppLWC extends LightningElement {
     }
   ]
 
+  //for disabling submit button
   get allNotSelected(){
     return !(Object.keys(this.selected).length === this.myQuestions.length);
   }
 
+  //dynamic stylings for messasge
   get isScoredFull(){
     return `slds-text-heading_large ${this.myQuestions.length === this.correctAnswers? 'slds-text-color_success':'slds-text-color_error'}`;
   }
 
+   //change handler for radio buttons
   changeHandler(event){
     console.log("name: ", event.target.name);
     console.log("value: ", event.target.value);
     const {name,value} = event.target;
-    this.selected={...this.selected, [name]:value}
+    this.selected={...this.selected, [name]:value};
   }
 
+   //form submit handler
   submitHandler(event){
     event.preventDefault();
     let correct = this.myQuestions.filter(item=>this.selected[item.id] === item.correctAnswer);
@@ -62,9 +67,10 @@ export default class QuizzAppLWC extends LightningElement {
     this.isSubmitted = true;
   }
 
+  //form reset handler
   resetHandler(){
     this.selected = {};
     this.correctAnswers = 0;
-    this.isSubmitted = false;
+    this.isSubmitted = false; 
   }
 }
