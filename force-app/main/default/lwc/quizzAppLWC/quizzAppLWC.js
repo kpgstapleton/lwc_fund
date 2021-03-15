@@ -1,6 +1,9 @@
 import { LightningElement } from 'lwc';
 
 export default class QuizzAppLWC extends LightningElement {
+  
+  selected={}//for storing answers
+
   myQuestions=[
     {
       id:"Question 1",
@@ -33,4 +36,11 @@ export default class QuizzAppLWC extends LightningElement {
       correctAnswer:"c"
     }
   ]
+
+  changeHandler(event){
+    console.log("name: ", event.target.name);
+    console.log("value: ", event.target.value);
+    const {name,value} = event.target;
+    this.selected={...this.selected, [name]:value}
+  }
 }
