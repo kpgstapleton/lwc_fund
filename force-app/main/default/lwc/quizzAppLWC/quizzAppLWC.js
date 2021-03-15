@@ -4,6 +4,7 @@ export default class QuizzAppLWC extends LightningElement {
   
   selected={}//for storing answers
   correctAnswers = 0;
+  isSubmitted = false;
 
   myQuestions=[
     {
@@ -42,6 +43,10 @@ export default class QuizzAppLWC extends LightningElement {
     return !(Object.keys(this.selected).length === this.myQuestions.length);
   }
 
+  get isScoredFull(){
+    return `slds-text-heading_large ${this.myQuestions.length === this.correctAnswers? 'slds-text-color_success':'slds-text-color_error'}`;
+  }
+
   changeHandler(event){
     console.log("name: ", event.target.name);
     console.log("value: ", event.target.value);
@@ -51,10 +56,15 @@ export default class QuizzAppLWC extends LightningElement {
 
   submitHandler(event){
     event.preventDefault();
-    this.myQuestions.filter(item=>this.selected[item.id] === item.correctAnswer);
+    let correct = this.myQuestions.filter(item=>this.selected[item.id] === item.correctAnswer);
+    this.correctAnswers = correct.length;
+    console.log("this.correctAnswers ", this.correctAnswers);
+    this.isSubmitted = true;
   }
 
   resetHandler(){
-
+    this.selected = {};
+    this.correctAnswers = 0;
+    this.isSubmitted = false;
   }
 }
