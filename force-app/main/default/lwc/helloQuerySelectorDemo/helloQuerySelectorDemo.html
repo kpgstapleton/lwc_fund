@@ -5,6 +5,7 @@
       <template for:each={userNames} for:item="user">
         <div class="name" title={user} key={user}>{user}</div>
       </template>
+      <div class="child" lwc:dom="manual"></div>
       <lightning-button onclick={fetchDetailHandler} 
       variant="brand" 
       label="Fetch Details" 

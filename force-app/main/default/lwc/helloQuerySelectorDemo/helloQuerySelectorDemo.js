@@ -15,6 +15,9 @@ export default class HelloQuerySelectorDemo extends LightningElement {
         item.setAttribute("title", item.innerText);
       }); //userElements is a node so convert that to a proper array and then console.log that
 
+      // lwc:manual demo
+      const childElem = this.template.querySelector('.child');
+      childElem.innerHTML = '<p> hey I am here </p>';
 
   }
 
