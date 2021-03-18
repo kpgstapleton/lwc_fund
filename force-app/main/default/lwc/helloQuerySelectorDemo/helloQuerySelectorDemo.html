@@ -3,7 +3,7 @@
     <div class="slds-var-m-around_medium">
       <h1>Hey I am a heading</h1>
       <template for:each={userNames} for:item="user">
-        <div class="name" key={user}>{user}</div>
+        <div class="name" title={user} key={user}>{user}</div>
       </template>
       <lightning-button onclick={fetchDetailHandler} 
       variant="brand" 
