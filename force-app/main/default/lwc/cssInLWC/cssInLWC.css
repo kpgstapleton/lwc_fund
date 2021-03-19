@@ -1,0 +1,16 @@
+/*it is recommended to not use Ids in lightning web component css */
+p{
+  color: green;
+  font-size: 30px;
+  border: 1px solid red;
+}
+
+.user{
+  color:pink;
+  font-size: 20px;
+}
+
+.user:hover{
+  color: orange;
+  font-size: 50px;
+}
