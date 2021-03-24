@@ -1,0 +1,4 @@
+div {
+  color:var(paletteGreen40);/* https://www.lightningdesignsystem.com/design-tokens/ */
+  background:var(--lwc-colorBackgroundAlt) ;
+}
