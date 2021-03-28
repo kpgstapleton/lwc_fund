@@ -24,5 +24,8 @@ export default class LifeCycleParent extends LightningElement {
     this.isChildVisible = !this.isChildVisible  
   }
 
-  disc
+  errorCallback(error,stack){
+    console.log(error.message);
+    console.log(stack)
+  }
 }
