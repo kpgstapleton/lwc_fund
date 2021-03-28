@@ -13,4 +13,8 @@ export default class RenderMethod extends LightningElement {
   handleClick(event){
     this.selectedButton = event.target.label;
   }
+
+  submitHandler(event){
+    console.log(`${event.target.label} Successful`)
+  }
 }
