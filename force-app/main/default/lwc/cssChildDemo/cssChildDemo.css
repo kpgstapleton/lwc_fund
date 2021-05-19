@@ -1,0 +1,12 @@
+/* the c-css-child-demo tag is not available in the child component so the :host annotation is used in place */
+:host{
+    display: block;
+    background-color: hotpink;
+    color: white;
+}
+
+:host(.blue){
+    display: block;
+    background-color: blue;
+    color: white;
+}
